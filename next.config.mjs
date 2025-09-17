@@ -3,19 +3,26 @@ const nextConfig = {
   experimental: {
     instrumentationHook: true,
   },
-  basePath: '/stock',
+  // We'll configure basePath only for production builds
+  basePath: process.env.NODE_ENV === 'production' ? '/stock' : '',
   env: {
     MONGODB_URI: process.env.MONGODB_URI,
     API_BASE: '/api',
-    NEXT_PUBLIC_API_URL: 'http://localhost:3001/stock/api',
+    NEXT_PUBLIC_API_URL: process.env.NODE_ENV === 'production' 
+      ? '/stock/api'
+      : 'http://localhost:3001/api',
   },
+  // Rewrites for production only
   async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: '/stock/api/:path*',
-      },
-    ];
+    if (process.env.NODE_ENV === 'production') {
+      return [
+        {
+          source: '/api/:path*',
+          destination: '/stock/api/:path*',
+        },
+      ];
+    }
+    return [];
   },
 };
 
