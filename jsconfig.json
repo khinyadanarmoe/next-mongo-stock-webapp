@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": "/stock",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
     }
-    
   }
 }
