@@ -84,10 +84,10 @@ export default function Home() {
     }
   };
 
-  const deleteById = (row) => async () => {
+  const deleteById = (id) => async () => {
     if (!confirm("Are you sure?")) return;
     
-    await fetch(`${API_BASE}/product/${row._id}`, {
+    await fetch(`${API_BASE}/product/${id}`, {
       method: "DELETE",
     });
     fetchProducts();
