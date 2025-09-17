@@ -12,3 +12,17 @@ export async function DELETE(request, { params }) {
   const id = params.id;
   return Response.json(await Product.findByIdAndDelete(id));
 }
+
+export async function PUT(request, { params }) {
+  const id = params.id;
+  const data = await request.json();
+  
+  // Update the product and return the updated document
+  const updatedProduct = await Product.findByIdAndUpdate(
+    id,
+    data,
+    { new: true } // This option returns the updated document
+  );
+  
+  return Response.json(updatedProduct);
+}
