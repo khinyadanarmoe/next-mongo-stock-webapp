@@ -48,7 +48,7 @@ export default function Home() {
   useEffect(() => {
     fetchCategory();
     fetchProducts();
-  }, []);
+  }, [fetchCategory, fetchProducts]);
 
   return (
     <>

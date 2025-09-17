@@ -62,7 +62,7 @@ export default function Home() {
   useEffect(() => {
     fetchCategory();
     fetchProducts();
-  }, []);
+  }, [fetchCategory, fetchProducts]);
 
   return (
     <div className="flex flex-col gap-4">

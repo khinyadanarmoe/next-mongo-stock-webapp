@@ -44,7 +44,7 @@ export default function Home() {
 
   useEffect(() => {
     fetchCategory();
-  }, []);
+  }, [fetchCategory]);
 
   function handleCategoryFormSubmit(data) {
     if (editMode) {
