@@ -11,6 +11,7 @@ export default function BoxBasic() {
         <ul>
           <li><Link href="/product">Products</Link></li>
           <li><Link href="/category">Category</Link></li>
+          <li><Link href="/supplier">Suppliers</Link></li>
         </ul>
         
       </Box>
